@@ -20,8 +20,8 @@ RUN composer install --no-dev --no-scripts --prefer-dist --no-progress --no-auto
  && composer dump-autoload --optimize
 
 # Copy main PHP config files
-COPY .cicd/docker/files/php.ini /usr/local/etc/phENTRYPOINT ["php", "/var/www/bin/console"]p/conf.d/php.ini
+COPY .cicd/docker/files/php.ini /usr/local/etc/php/conf.d/php.ini
 
 COPY . ./
 
-
+ENTRYPOINT ["php", "/var/www/bin/console"]
